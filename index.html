@@ -36,24 +36,22 @@ h1 span{background:linear-gradient(90deg,#c4622d,#ec9a5c);-webkit-background-cli
 .grid{position:relative;flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:18px;min-height:0}
 .card{position:relative;overflow:hidden;border-radius:34px;padding:20px 20px 18px;display:flex;flex-direction:column;min-height:0;
   background:linear-gradient(180deg,#fffaf2,#f8ead7);border:1.5px solid rgba(130,90,60,.2);box-shadow:0 14px 30px -16px rgba(90,50,20,.45)}
-.glow{position:absolute;left:50%;top:170px;width:330px;height:330px;transform:translate(-50%,-50%);border-radius:50%;filter:blur(58px);opacity:.42}
 .day{position:relative;height:56px;display:flex;justify-content:space-between;align-items:center}
 .pill{display:flex;align-items:center;gap:12px;background:#4a3326;color:#fff3e3;border-radius:99px;padding:6px 24px 6px 6px;box-shadow:0 6px 12px -6px rgba(60,30,10,.55)}
 .pill .no{width:44px;height:44px;border-radius:50%;background:#efc08f;color:#4a3326;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800}
 .pill b{font-size:32px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 .tag{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#b0552a;background:rgba(196,98,45,.16);border:2.5px dashed rgba(176,85,42,.7)}
-.flat{position:relative;flex:none;height:282px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
-.flat svg{display:block;flex:none;filter:drop-shadow(0 9px 10px rgba(70,35,10,.28))}
+.flat{position:relative;flex:none;height:306px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.flat svg{display:block;flex:none}
 .row2{display:flex;align-items:flex-end;justify-content:center;gap:8px}
 .row2 .fl{transform:scaleX(-1)}
-.names{position:relative;display:grid;gap:5px;margin-top:8px;height:88px;align-content:start}
+.names{position:relative;display:grid;gap:5px;margin-top:8px;height:84px;align-content:start}
 .names div{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;color:#4a3326;white-space:nowrap}
 .names i{flex:none;width:15px;height:15px;border-radius:5px;box-shadow:0 0 0 1.5px rgba(70,40,20,.45)}
 .slot{position:relative;margin-top:auto;height:74px;display:flex;align-items:stretch}
 .alt{flex:1;border:3px dashed rgba(90,55,35,.55);border-radius:20px;padding:6px 14px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.55)}
 .alt .at{font-size:13px;font-weight:800;letter-spacing:.14em;color:#b0552a}
 .alt .ic{display:flex;align-items:center;gap:4px}
-.alt .ic svg{filter:drop-shadow(0 3px 3px rgba(70,35,10,.25))}
 .alt p{font-size:17px;font-weight:700;line-height:1.2;color:#4a3326}
 .alt p small{display:block;font-size:15px;color:#8a6a55;font-weight:600}
 .none{flex:1;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;letter-spacing:.1em;color:rgba(110,75,55,.55);background:rgba(120,80,50,.07)}
@@ -91,7 +89,7 @@ var D=[
  {h:"Sabtu",t:"polo",a:"Polo Hitam",ca:BLK,b:"Celana Abu-Abu",cb:"#808080",s:"w"}
 ];
 function lum(c){var r=parseInt(c.substr(1,2),16),g=parseInt(c.substr(3,2),16),b=parseInt(c.substr(5,2),16);return 0.299*r+0.587*g+0.114*b}
-var OUT="rgba(60,35,20,.4)";
+var OUT="rgba(35,20,10,.7)";
 function lineFor(c){return lum(c)<60?"rgba(255,255,255,.24)":"rgba(0,0,0,.38)"}
 function shirt(o,w){
   var P="M40 6 L8 22 L18 52 L34 45 L34 104 L86 104 L86 45 L102 52 L112 22 L80 6 Q60 22 40 6 Z";
@@ -99,9 +97,8 @@ function shirt(o,w){
   var s='<svg viewBox="0 0 120 110" width="'+w+'" height="'+(w*110/120)+'">';
   s+='<path d="'+P+'" fill="'+o.ca+'"/>';
   if(o.pat)s+='<path d="'+P+'" fill="url(#'+o.pat+')"/>';
-  s+='<path d="'+P+'" fill="url(#'+hl+')"/>';
   if(o.t==="kaos"){
-    s+='<path d="M40 6 Q60 28 80 6 Q60 20 40 6Z" fill="rgba(0,0,0,.35)"/><path d="M40 6 Q60 28 80 6" fill="none" stroke="'+LN+'" stroke-width="2"/>';
+    s+='<path d="M40 6 Q60 28 80 6 Q60 20 40 6Z" fill="rgba(0,0,0,.45)"/><path d="M40 6 Q60 28 80 6" fill="none" stroke="'+LN+'" stroke-width="2"/>';
   }else{
     var cf=dark?"rgba(255,255,255,.1)":"rgba(255,255,255,.22)";
     s+='<path d="M40 6 L53 9 L60 28 L46 22 Z" fill="'+cf+'" stroke="'+LN+'" stroke-width="1.5"/>';
@@ -113,18 +110,18 @@ function shirt(o,w){
     if(o.t==="kemeja")s+='<rect x="66" y="52" width="12" height="13" rx="2" fill="none" stroke="'+LN+'" stroke-width="1.3"/>';
   }
   s+='<path d="M34 45 Q38 30 40 20" fill="none" stroke="'+LN+'" stroke-width="1.2" opacity=".6"/><path d="M86 45 Q82 30 80 20" fill="none" stroke="'+LN+'" stroke-width="1.2" opacity=".6"/>';
-  s+='<path d="'+P+'" fill="none" stroke="'+OUT+'" stroke-width="1.8" stroke-linejoin="round"/>';
+  s+='<path d="'+P+'" fill="none" stroke="'+OUT+'" stroke-width="2.2" stroke-linejoin="round"/>';
   return s+'</svg>';
 }
 function pants(c,w){
   var P="M22 4 H78 L84 124 H56 L50 46 L44 124 H16 Z";
   var dark=lum(c)<60, LN=lineFor(c);
   var s='<svg viewBox="0 0 100 128" width="'+w+'" height="'+(w*128/100)+'">';
-  s+='<path d="'+P+'" fill="'+c+'"/><path d="'+P+'" fill="url(#'+(dark?"hld":"hl")+')"/>';
+  s+='<path d="'+P+'" fill="'+c+'"/>';
   s+='<path d="M22 15 H78" stroke="'+LN+'" stroke-width="1.6"/><path d="M50 15 V46" stroke="'+LN+'" stroke-width="1.4"/>';
   s+='<path d="M25 16 Q34 28 36 40" fill="none" stroke="'+LN+'" stroke-width="1.3"/><path d="M75 16 Q66 28 64 40" fill="none" stroke="'+LN+'" stroke-width="1.3"/>';
   s+='<rect x="47" y="8" width="6" height="5" rx="1.5" fill="rgba(255,255,255,'+(dark?".3":".45")+')"/>';
-  s+='<path d="'+P+'" fill="none" stroke="'+OUT+'" stroke-width="1.8" stroke-linejoin="round"/>';
+  s+='<path d="'+P+'" fill="none" stroke="'+OUT+'" stroke-width="2.2" stroke-linejoin="round"/>';
   return s+'</svg>';
 }
 function shoe(k,w,cls){
@@ -134,7 +131,6 @@ function shoe(k,w,cls){
   var s='<svg class="'+(cls||"")+'" viewBox="0 0 140 64" width="'+w+'" height="'+(w*64/140)+'">';
   s+='<path d="'+U+'" fill="'+up+'"/>';
   s+='<path d="M8 46 C8 38 10 34 14 32 L22 29 L24 52 L8 52 Z" fill="'+ac+'"/>';
-  s+='<path d="'+U+'" fill="url(#'+(k==="w"?"hl":"hld")+')"/>';
   s+='<rect x="5" y="49" width="126" height="11" rx="5.5" fill="'+so+'"/>';
   s+='<path d="M50 22 L58 30 M58 17 L66 26 M66 15 L72 22" stroke="'+lace+'" stroke-width="2.2" stroke-linecap="round"/>';
   s+='<path d="M8 46 C8 34 14 30 24 28 L44 24 C52 12 62 12 70 20 L80 30 C100 32 118 38 128 46" fill="none" stroke="'+OUT+'" stroke-width="1.5"/>';
@@ -150,9 +146,8 @@ D.forEach(function(d,i){
     slot='<div class="alt"><span class="at">ATAU</span><div class="ic">'+shirt(x,46)+pants(x.cb,27)+'</div><p>'+x.a+'<small>'+x.b+'</small></p></div>';
   }else slot='<div class="none">SETELAN TETAP</div>';
   var c=document.createElement("div");c.className="card";
-  c.innerHTML='<div class="glow" style="background:'+gc+'"></div>'+
-   '<div class="day"><div class="pill"><span class="no">'+(i+1)+'</span><b>'+d.h+'</b></div>'+(d.alt?'<span class="tag">+1</span>':'')+'</div>'+
-   '<div class="flat">'+shirt(d,172)+'<div class="row2">'+shoe(d.s,88,"fl")+pants(d.cb,80)+shoe(d.s,88)+'</div></div>'+
+  c.innerHTML='<div class="day"><div class="pill"><span class="no">'+(i+1)+'</span><b>'+d.h+'</b></div>'+(d.alt?'<span class="tag">+1</span>':'')+'</div>'+
+   '<div class="flat">'+shirt(d,184)+'<div class="row2">'+shoe(d.s,94,"fl")+pants(d.cb,86)+shoe(d.s,94)+'</div></div>'+
    '<div class="names"><div><i style="background:'+d.ca+'"></i>'+d.a+'</div><div><i style="background:'+d.cb+'"></i>'+d.b+'</div><div><i style="background:'+sc+'"></i>'+sn+'</div></div>'+
    '<div class="slot">'+slot+'</div>';
   g.appendChild(c);
